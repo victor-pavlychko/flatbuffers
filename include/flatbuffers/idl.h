@@ -548,6 +548,7 @@ struct IDLOptions {
     kLobster = 1 << 13,
     kRust = 1 << 14,
     kKotlin = 1 << 15,
+    kSwift = 1 << 16,
     kMAX
   };
 
@@ -959,6 +960,10 @@ extern bool GenerateCPP(const Parser &parser,
                         const std::string &path,
                         const std::string &file_name);
 
+extern bool GenerateSwift(const Parser &parser,
+                          const std::string &path,
+                          const std::string &file_name);
+
 extern bool GenerateDart(const Parser &parser,
                          const std::string &path,
                          const std::string &file_name);
@@ -1039,6 +1044,12 @@ extern std::string JSTSMakeRule(const Parser &parser,
 extern std::string CPPMakeRule(const Parser &parser,
                                const std::string &path,
                                const std::string &file_name);
+
+// Generate a make rule for the generated Swift bridge files.
+// See idl_gen_swift.cpp.
+extern std::string SwiftMakeRule(const Parser &parser,
+                                 const std::string &path,
+                                 const std::string &file_name);
 
 // Generate a make rule for the generated Dart code
 // see idl_gen_dart.cpp
